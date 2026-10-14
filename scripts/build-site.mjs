@@ -4,6 +4,7 @@ import { execFileSync } from "node:child_process";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { pageLinks, resolveLocalTarget, splitLocalHref } from "./page-links.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputRoot = path.join(projectRoot, "docs");
@@ -57,44 +58,26 @@ function getIcon(html, title) {
   return title === "Summer Internship Report" ? "⌁" : "§";
 }
 
-function resolveLocalTarget(source, rawValue) {
-  let decoded;
-  try { decoded = decodeURIComponent(rawValue); } catch { decoded = rawValue; }
-  return normalise(path.resolve(path.dirname(source), decoded));
-}
-
-function pageLinks(article, source, bySource) {
-  const links = [];
-  for (const match of article.matchAll(/href="([^"]+\.html(?:#[^"]*)?)"/gi)) {
-    const [rawPath] = match[1].split("#");
-    const target = bySource.get(resolveLocalTarget(source, rawPath));
-    if (target && !links.includes(target)) links.push(target);
-  }
-  return links;
-}
-
 function rewriteUrls(article, page, bySource, assetFiles) {
-  return article.replace(/\b(href|src)="([^"]+)"/gi, (whole, attribute, rawValue) => {
+  return article.replace(/\b(href|src)=(["'])(.*?)\2/gi, (whole, attribute, quote, rawValue) => {
     if (/^(?:[a-z]+:|#|\/\/)/i.test(rawValue)) {
       if (attribute.toLowerCase() === "href" && /^https?:/i.test(rawValue)) {
-        return `${attribute}="${rawValue}" target="_blank" rel="noopener noreferrer"`;
+        return `${attribute}=${quote}${rawValue}${quote} target="_blank" rel="noopener noreferrer"`;
       }
       return whole;
     }
 
-    const hashIndex = rawValue.indexOf("#");
-    const rawPath = hashIndex >= 0 ? rawValue.slice(0, hashIndex) : rawValue;
-    const fragment = hashIndex >= 0 ? rawValue.slice(hashIndex) : "";
-    if (!rawPath) return whole;
+    const localHref = splitLocalHref(rawValue);
+    if (!localHref) return whole;
 
-    const target = resolveLocalTarget(page.source, rawPath);
+    const target = resolveLocalTarget(page.source, localHref.pathname);
     const linkedPage = bySource.get(target);
-    if (linkedPage) return `${attribute}="${linkedPage.output}${fragment}"`;
+    if (linkedPage) return `${attribute}=${quote}${linkedPage.output}${localHref.suffix}${quote}`;
 
     if (target.startsWith(projectRoot + path.sep) && existsSync(target)) {
       const relative = path.relative(projectRoot, target).split(path.sep).join("/");
       assetFiles.add(target);
-      return `${attribute}="assets/notion/${encodePath(relative)}${fragment}"`;
+      return `${attribute}=${quote}assets/notion/${encodePath(relative)}${localHref.suffix}${quote}`;
     }
     return whole;
   });

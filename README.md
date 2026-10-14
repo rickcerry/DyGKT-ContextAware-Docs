@@ -18,7 +18,7 @@ Then open <http://localhost:4173>.
 4. Run `node scripts/check-site.mjs` and review `docs/`.
 5. Commit the original export and the regenerated site.
 
-The converter discovers exported HTML pages, follows their internal links to preserve page order, rewrites local links, copies media into `docs/assets/notion/`, and creates browser-safe cover imagery when macOS `sips` is available. The files in `site/` contain the reusable design and behavior.
+The converter discovers exported HTML pages recursively and follows internal page links—including URL-encoded paths, query strings, and anchors—to include subpages and preserve their order. It rewrites local links, copies media into `docs/assets/notion/`, and creates browser-safe cover imagery when macOS `sips` is available. The files in `site/` contain the reusable design and behavior.
 
 When the final public URL is known, include it while rebuilding so LinkedIn and other social networks receive absolute Open Graph URLs:
 

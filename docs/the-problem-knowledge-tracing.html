@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Problem: Knowledge Tracing — A Context-Aware Extension of Dynamic Graph-based Knowledge Tracing.">
+  <meta name="theme-color" content="#f4f1ea">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Problem: Knowledge Tracing · Summer Internship Report">
+  <meta property="og:description" content="A Context-Aware Extension of Dynamic Graph-based Knowledge Tracing.">
+  <meta property="og:url" content="the-problem-knowledge-tracing.html">
+  <meta property="og:image" content="assets/social-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Summer Internship Report at KTH Royal Institute of Technology">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Problem: Knowledge Tracing · Summer Internship Report">
+  <meta name="twitter:description" content="A Context-Aware Extension of Dynamic Graph-based Knowledge Tracing.">
+  <meta name="twitter:image" content="assets/social-card.jpg">
+  <title>The Problem: Knowledge Tracing · Summer Internship Report</title>
+  <link rel="icon" type="image/png" href="assets/notion/Summer%20Internship%20Report/KTH_Logotyp_RGB_2013.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body data-page-index="1">
+  <a class="skip-link" href="#report-content">Skip to report content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-sidebar">
+    <span class="menu-icon" aria-hidden="true"></span>
+    <span>Contents</span>
+  </button>
+  <button class="sidebar-scrim" type="button" aria-label="Close navigation" tabindex="-1"></button>
+  
+    <aside class="sidebar" id="site-sidebar" aria-label="Report navigation">
+      <div class="sidebar-inner">
+        <a class="site-brand" href="index.html">
+          <span><strong>Summer Internship Report</strong><small>Riccardo Alfonso Cerrone</small></span>
+        </a>
+        <nav class="page-navigation" aria-label="Pages">
+          <p class="nav-label">Report chapters</p>
+          <ol>
+    <li>
+      <a class="sidebar-link" href="index.html">
+        <span class="nav-icon" aria-hidden="true">⌁</span>
+        <span>Summer Internship Report</span>
+      </a>
+    </li>
+    <li>
+      <a class="sidebar-link is-active" href="the-problem-knowledge-tracing.html" aria-current="page">
+        <span class="nav-icon" aria-hidden="true">1️⃣</span>
+        <span>The Problem: Knowledge Tracing</span>
+      </a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="the-baseline-dygkt.html">
+        <span class="nav-icon" aria-hidden="true">2️⃣</span>
+        <span>The Baseline: DyGKT</span>
+      </a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="a-context-aware-extension-of-dygkt.html">
+        <span class="nav-icon" aria-hidden="true">3️⃣</span>
+        <span>A Context-Aware Extension of DyGKT</span>
+      </a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="conclusions.html">
+        <span class="nav-icon" aria-hidden="true">4️⃣</span>
+        <span>Conclusions</span>
+      </a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="references.html">
+        <span class="nav-icon" aria-hidden="true">ℹ️</span>
+        <span>References</span>
+      </a>
+    </li></ol>
+        </nav>
+        <div class="outline-wrap">
+          <p class="nav-label">On this page</p>
+          <nav class="page-outline" id="page-outline" aria-label="On this page"></nav>
+        </div>
+        <div class="sidebar-meta">
+          <span>Riccardo Alfonso Cerrone</span>
+          <a href="mailto:cerrone@kth.se">cerrone@kth.se</a>
+        </div>
+      </div>
+    </aside>
+  <main class="site-main" id="report-content">
+    <div class="topline">
+      <a href="index.html">Summer Internship Report</a>
+      <a class="references-link" href="references.html">References</a>
+    </div>
+    <div class="paper">
+      <article id="3c0b16cc-09dd-8030-9dce-d58cbe1a48e7" class="page sans" data-notion-page-icon="1️⃣"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="1️⃣"></span></div><h1 class="page-title" dir="auto"><strong>The Problem: Knowledge Tracing</strong></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="3cab16cc-09dd-80fb-bc8b-f6d2f3d000ec" class="" dir="auto"><strong>Introduction to Knowledge Tracing</strong></h1><p id="3cab16cc-09dd-80d0-8b3f-cd002919349d" class="" dir="auto"><strong>Knowledge Tracing</strong> (KT) aims to <span style="border-bottom:0.05em solid">estimate a student’s knowledge state</span> at a given point in time, with particular attention to the <strong>knowledge components (KCs)</strong> involved in the learning process. </p><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="ℹ️" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="3cab16cc-09dd-8097-94ac-f1f4991c1bcb" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="ℹ️"></span></div><div style="width:100%"><p id="3cab16cc-09dd-802d-aa6d-dbecd6599e86" class="" dir="auto">A <strong>knowledge component</strong> represents a unit of knowledge required to perform a task, such as a skill, concept, fact, principle, or problem-solving strategy.</p></div></aside><figure id="3c7b16cc-09dd-80b2-9e67-e91702b87aba" class="image" data-notion-image="The%20Problem%20Knowledge%20Tracing/csur-2022-0026-f01-2.jpg" dir="ltr"><a href="assets/notion/Summer%20Internship%20Report/The%20Problem%20Knowledge%20Tracing/csur-2022-0026-f01-2.jpg"><img style="width:432px" src="assets/notion/Summer%20Internship%20Report/The%20Problem%20Knowledge%20Tracing/csur-2022-0026-f01-2.jpg"/></a><figcaption>Example of Knowledge Tracing in an Intelligent Tutoring System (ITS), adapted from Abdelrahman et al. (2023).</figcaption></figure><p id="3cab16cc-09dd-8085-94ea-f5ba286d4d6d" class="" dir="auto">A student’s knowledge state is <strong>latent</strong> and therefore cannot be directly observed. Instead, KT models infer it from observable interactions with learning activities, typically represented as sequences of responses to questions or exercises. Considering these interactions over time provides information about how the student’s knowledge evolves and allows the model to predict future performance.</p><p id="3cab16cc-09dd-8089-af55-cd74256c8a40" class="" dir="auto">Observed performance, however, does not necessarily provide a direct measurement of knowledge. A student may answer correctly without having mastered the underlying knowledge component, commonly referred to as <strong>guessing</strong>, or may answer incorrectly despite having acquired the required knowledge, known as <strong>slipping</strong>. KT therefore attempts to model the relationship between observed interactions and the underlying knowledge state while accounting for its evolution over time.</p><p id="3cab16cc-09dd-8029-9cde-c98a27a2cb87" class="" dir="auto">Estimating this latent state is particularly relevant in <strong>adaptive educational systems</strong>. Knowledge estimates can be used to monitor learning progress, provide information to instructors, and support automated pedagogical decisions, such as selecting learning activities according to the estimated state of the student.</p><h1 id="3cab16cc-09dd-8001-987b-d97cce26ad65" class="" dir="auto"><strong>Deep Knowledge Tracing</strong></h1><p id="3cab16cc-09dd-8056-8e8e-d84784cbdc27" class="" dir="auto"><strong>Deep Knowledge Tracing (DKT)</strong> introduced deep neural networks into the Knowledge Tracing problem. In its original formulation, DKT employs a <strong>Long Short-Term Memory (LSTM)</strong> network to process sequences of student interactions and predict performance on future exercises. Compared with traditional approaches such as Bayesian Knowledge Tracing (BKT), deep learning-based models can learn complex temporal dependencies between interactions without requiring these relationships to be explicitly defined in advance.</p><p id="3cab16cc-09dd-805a-a840-ded2c0204c1e" class="" dir="auto">The introduction of DKT led to the development of a broad family of <strong>deep learning-based Knowledge Tracing models</strong>. Although the original results indicated substantial improvements over traditional methods, subsequent research highlighted methodological issues that can affect the evaluation of KT models, including data leakage and inappropriate train-test splitting. Nevertheless, under appropriate experimental settings, deep learning approaches have demonstrated strong predictive performance, particularly on large-scale educational datasets.</p><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="🔗" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="3cdb16cc-09dd-8078-a992-c8e4e49d7434" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="🔗"></span></div><div style="width:100%"><p id="3cdb16cc-09dd-8037-b3b6-feebdc323030" class="" dir="auto">To learn more about the original Deep Knowledge Tracing approach, the corresponding paper can be found in the references.</p><figure id="3c7b16cc-09dd-80da-87af-e04f49efacdb" class="link-to-page"><a href="references.html" data-notion-page-id="3c7b16cc-09dd-80da-87af-e04f49efacdb" data-notion-space-id="9d8b16cc-09dd-81fe-87ac-000323ef94d8"><span class="icon" data-emoji="ℹ️"></span>References</a></figure></div></aside><p id="3cab16cc-09dd-8087-8307-dbcc5967162a" class="" dir="auto">Several limitations of the original DKT formulation motivated subsequent developments. </p><p id="3cdb16cc-09dd-80af-9e9f-ecac2754ff91" class="" dir="auto">One concerns the stability of the estimated knowledge state: DKT may produce counter-intuitive variations, such as decreases in estimated knowledge following a correct response. <strong>DKT+</strong> addressed this issue by introducing regularization terms designed to encourage more consistent predictions across consecutive interactions.</p><p id="3cab16cc-09dd-808d-8ff9-f5a0a219d739" class="" dir="auto">A second limitation concerns <strong>interpretability</strong>. While traditional KT approaches explicitly associate knowledge estimates with predefined knowledge components, DKT relies on latent representations whose pedagogical interpretation is not straightforward. Models such as <strong>Dynamic Key-Value Memory Networks (DKVMN)</strong> introduced external memory structures to separate representations of knowledge concepts from their evolving mastery states. However, these learned representations do not necessarily correspond directly to human-interpretable knowledge components.</p><p id="3cab16cc-09dd-801f-899a-d48ad1ae6464" class="" dir="auto">More recent approaches have increasingly focused on modelling the <strong>relevance of historical interactions to the current prediction</strong>. <strong>Self-Attentive Knowledge Tracing (SAKT)</strong> employs attention mechanisms to identify previous exercises that are particularly relevant to the current exercise. <strong>Attentive Knowledge Tracing (AKT)</strong> further incorporates information such as question difficulty and temporal decay, allowing the contribution of historical interactions to depend on both their relevance and temporal distance. Other models, such as <strong>SAINT+</strong>, extend this idea by incorporating additional contextual information, including elapsed time and intervals between interactions.</p><p id="3cab16cc-09dd-808d-9776-f29cb5aca42e" class="" dir="auto">Overall, the evolution from recurrent models such as DKT toward attention-based and context-aware approaches demonstrates a progressive shift from simply modelling sequences of interactions to explicitly considering <strong>which elements of a student’s history are most informative for a given prediction</strong>. This observation provides a natural motivation for investigating alternative representations of interaction histories, including graph-based approaches in which students, questions, and their temporal interactions can be modelled explicitly.</p><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="🔗" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="3c7b16cc-09dd-80b9-ae76-f73c8373d183" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="🔗"></span></div><div style="width:100%"><p id="3c7b16cc-09dd-80a9-95c2-f1788fb0da6e" class="" dir="auto">The material presented in this section is based on the video lectures from Chapter 4, <em>Knowledge Inference</em>, of the <em>Big Data and Education</em> course.</p><figure id="3c7b16cc-09dd-80da-87af-e04f49efacdb" class="link-to-page"><a href="references.html" data-notion-page-id="3c7b16cc-09dd-80da-87af-e04f49efacdb" data-notion-space-id="9d8b16cc-09dd-81fe-87ac-000323ef94d8"><span class="icon" data-emoji="ℹ️"></span>References</a></figure></div></aside></div></article>
+      
+    <nav class="chapter-pager" aria-label="Chapter navigation">
+      <a class="pager-link pager-previous" href="index.html"><span>Previous</span><strong>← Summer Internship Report</strong></a>
+      <a class="pager-link pager-next" href="the-baseline-dygkt.html"><span>Next</span><strong>The Baseline: DyGKT →</strong></a>
+    </nav>
+    </div>
+    <footer class="site-footer"><a href="#report-content">Back to top ↑</a></footer>
+  </main>
+</body>
+</html>

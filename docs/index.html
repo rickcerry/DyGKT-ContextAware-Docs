@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Summer Internship Report — A Context-Aware Extension of Dynamic Graph-based Knowledge Tracing.">
+  <meta name="theme-color" content="#f4f1ea">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Summer Internship Report">
+  <meta property="og:description" content="A Context-Aware Extension of Dynamic Graph-based Knowledge Tracing.">
+  <meta property="og:url" content="index.html">
+  <meta property="og:image" content="assets/social-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Summer Internship Report at KTH Royal Institute of Technology">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Summer Internship Report">
+  <meta name="twitter:description" content="A Context-Aware Extension of Dynamic Graph-based Knowledge Tracing.">
+  <meta name="twitter:image" content="assets/social-card.jpg">
+  <title>Summer Internship Report</title>
+  <link rel="icon" type="image/png" href="assets/notion/Summer%20Internship%20Report/KTH_Logotyp_RGB_2013.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body data-page-index="0">
+  <a class="skip-link" href="#report-content">Skip to report content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-sidebar">
+    <span class="menu-icon" aria-hidden="true"></span>
+    <span>Contents</span>
+  </button>
+  <button class="sidebar-scrim" type="button" aria-label="Close navigation" tabindex="-1"></button>
+  
+    <aside class="sidebar" id="site-sidebar" aria-label="Report navigation">
+      <div class="sidebar-inner">
+        <a class="site-brand" href="index.html">
+          <span><strong>Summer Internship Report</strong><small>Riccardo Alfonso Cerrone</small></span>
+        </a>
+        <nav class="page-navigation" aria-label="Pages">
+          <p class="nav-label">Report chapters</p>
+          <ol>
+    <li>
+      <a class="sidebar-link is-active" href="index.html" aria-current="page">
+        <span class="nav-icon" aria-hidden="true">⌁</span>
+        <span>Summer Internship Report</span>
+      </a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="the-problem-knowledge-tracing.html">
+        <span class="nav-icon" aria-hidden="true">1️⃣</span>
+        <span>The Problem: Knowledge Tracing</span>
+      </a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="the-baseline-dygkt.html">
+        <span class="nav-icon" aria-hidden="true">2️⃣</span>
+        <span>The Baseline: DyGKT</span>
+      </a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="a-context-aware-extension-of-dygkt.html">
+        <span class="nav-icon" aria-hidden="true">3️⃣</span>
+        <span>A Context-Aware Extension of DyGKT</span>
+      </a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="conclusions.html">
+        <span class="nav-icon" aria-hidden="true">4️⃣</span>
+        <span>Conclusions</span>
+      </a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="references.html">
+        <span class="nav-icon" aria-hidden="true">ℹ️</span>
+        <span>References</span>
+      </a>
+    </li></ol>
+        </nav>
+        <div class="outline-wrap">
+          <p class="nav-label">On this page</p>
+          <nav class="page-outline" id="page-outline" aria-label="On this page"></nav>
+        </div>
+        <div class="sidebar-meta">
+          <span>Riccardo Alfonso Cerrone</span>
+          <a href="mailto:cerrone@kth.se">cerrone@kth.se</a>
+        </div>
+      </div>
+    </aside>
+  <main class="site-main" id="report-content">
+    <div class="topline">
+      <a href="index.html">Summer Internship Report</a>
+      <a class="references-link" href="references.html">References</a>
+    </div>
+    <div class="paper">
+      <article id="3c0b16cc-09dd-806e-b5db-ff66660fd004" class="page sans" data-notion-page-icon="attachment:45b4becb-2284-416b-b07c-6ab25ed879f3:KTH_Logotyp_RGB_2013.png"><header><img class="page-cover-image" src="assets/notion/Summer%20Internship%20Report/IMG_2625.jpg" style="object-position:center 51.17%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="assets/notion/Summer%20Internship%20Report/KTH_Logotyp_RGB_2013.png"/></div><h1 class="page-title" dir="auto">Summer Internship Report</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h3 id="3c7b16cc-09dd-80a2-b8b8-d8fbf650fc14" class="" dir="auto">A Context-Aware Extension of Dynamic Graph-based Knowledge Tracing</h3><h1 id="3c7b16cc-09dd-802a-a35b-ecfbf02de6a2" class="" dir="auto">Introduction</h1><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-icon="ℹ️" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="3c0b16cc-09dd-80a5-8110-f3d133be06de" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="ℹ️"></span></div><div style="width:100%"><p id="3c0b16cc-09dd-80cb-96e8-e1f6982ca6c8" class="" dir="auto"><span style="border-bottom:0.05em solid">Student</span>: <strong>Riccardo Alfonso Cerrone</strong></p><p id="3c0b16cc-09dd-8011-b2ea-da93edc9b95c" class="" dir="auto"><span style="border-bottom:0.05em solid">Supervisor</span>: <strong>Aristides Gionis</strong></p><p id="3c0b16cc-09dd-80ae-a559-fce4e31b0c3e" class="" dir="auto">Working at the <span style="border-bottom:0.05em solid">KTH Royal Institute of Technology</span>, Theoretical Computer Science division, during Summer 2026.</p><p id="3c0b16cc-09dd-80c5-b607-c492d378ce5a" class="" dir="auto">Funded by the <strong>Digital Futures Summer Research Internship (SRI) Program 2026</strong>.</p></div></aside><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-icon="📖" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="3c7b16cc-09dd-80ff-ba44-cbf8fd30e42b" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="📖"></span></div><div style="width:100%"><p id="3c7b16cc-09dd-809c-b894-e0e375862d92" class="" dir="auto"><strong>Topics covered</strong></p><div class="topic-links" aria-label="Topics covered">
+    <a href="https://en.wikipedia.org/wiki/Educational_data_mining" target="_blank" rel="noopener noreferrer"><span>Educational data mining</span><span aria-hidden="true">↗</span></a>
+    <a href="the-problem-knowledge-tracing.html"><span>Knowledge tracing</span><span aria-hidden="true">→</span></a>
+    <a href="https://www.puppygraph.com/blog/dynamic-graph" target="_blank" rel="noopener noreferrer"><span>Dynamic graphs</span><span aria-hidden="true">↗</span></a>
+  </div></div></aside><p id="3c0b16cc-09dd-80c0-83ee-f10eb7c4dc8b" class="" dir="auto">This website serves as a report of my internship. If you would like to receive a PDF version of the report, please contact me at the email address provided in the <em>Contacts </em>section below.</p><h4 id="3cbb16cc-09dd-8053-a660-fd54f03468aa" class="" dir="auto">Contacts</h4><div id="3cbb16cc-09dd-80e5-9519-e7ac52b7d4c8" class="column-list" data-notion-column-list="" dir="auto"><div id="3cbb16cc-09dd-802d-a253-f57c39938b2b" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-icon="✉️" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="3c9b16cc-09dd-8070-abc9-ee1641260cc2" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="✉️"></span></div><div style="width:100%"><p id="3c9b16cc-09dd-8065-9501-ffb78faf53a1" class="" dir="auto">eMail: <a href="mailto:cerrone@kth.se">cerrone@kth.se</a></p></div></aside></div><div id="3cbb16cc-09dd-801b-84e4-cbab23b6efe9" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="3c9b16cc-09dd-8092-9d81-e741e54fbbd8" dir="ltr"><div style="font-size:1.5em"><img class="icon" src="assets/notion/Summer%20Internship%20Report/LinkedIn_logo_initials.png"/></div><div style="width:100%"><p id="3c9b16cc-09dd-80ad-ab0a-ce1063d0ab61" class="" dir="auto">LinkedIn: <a href="https://www.linkedin.com/in/riccardoalfonsocerrone/" target="_blank" rel="noopener noreferrer">riccardoalfonsocerrone</a></p></div></aside></div></div><hr id="3c7b16cc-09dd-80c6-9fee-e1367c80596b" dir="auto"/><h1 id="3c0b16cc-09dd-80a8-a36f-f4b0e909dd15" class="" dir="auto">Contents of the report</h1><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="🤖" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="3c1b16cc-09dd-80cc-b5c4-e9d05cf108bf" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="🤖"></span></div><div style="width:100%"><p id="3c1b16cc-09dd-803b-9cf0-f6cfa3e8a974" class="" dir="auto">The content of this internship report is the <span style="border-bottom:0.05em solid">result of my own work</span>. LLMs were used to refine the report, primarily for rewriting and grammatical correction.</p></div></aside><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="🖼️" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="3d0b16cc-09dd-8049-bdad-c0b8388eeda0" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="🖼️"></span></div><div style="width:100%"><p id="3d0b16cc-09dd-80e3-b9bd-eb1a413d559c" class="" dir="auto">All images for which no reference to a paper is provided were produced by me.</p></div></aside><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="3cdb16cc-09dd-8005-a19b-c5957c869529" dir="ltr"><div style="width:100%"><figure id="3c0b16cc-09dd-8030-9dce-d58cbe1a48e7" class="link-to-page"><a href="the-problem-knowledge-tracing.html" data-notion-page-id="3c0b16cc-09dd-8030-9dce-d58cbe1a48e7" data-notion-space-id="9d8b16cc-09dd-81fe-87ac-000323ef94d8"><span class="icon" data-emoji="1️⃣"></span>The Problem: Knowledge Tracing</a></figure><p id="fa4b16cc-09dd-83a6-bfe6-01e5fbdf21aa" class="" dir="auto">A brief introduction to <strong>Knowledge Tracing</strong> and the specific problem addressed in this work.</p></div></aside><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="3cdb16cc-09dd-808c-951c-d512b49151f9" dir="ltr"><div style="width:100%"><figure id="3c0b16cc-09dd-8038-8329-eabf1c8e1848" class="link-to-page"><a href="the-baseline-dygkt.html" data-notion-page-id="3c0b16cc-09dd-8038-8329-eabf1c8e1848" data-notion-space-id="9d8b16cc-09dd-81fe-87ac-000323ef94d8"><span class="icon" data-emoji="2️⃣"></span>The Baseline: DyGKT</a></figure><p id="3cdb16cc-09dd-80e7-be81-dd4c4528fb4c" class="" dir="auto">Introduction to <strong>Dynamic Graph-based Knowledge Tracing</strong> (DyGKT) and an explanation of why it was selected as the baseline model.</p></div></aside><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="3cdb16cc-09dd-80a0-adc8-fddf546e691e" dir="ltr"><div style="width:100%"><figure id="3c0b16cc-09dd-806f-a6d8-e4d0d3ce005e" class="link-to-page"><a href="a-context-aware-extension-of-dygkt.html" data-notion-page-id="3c0b16cc-09dd-806f-a6d8-e4d0d3ce005e" data-notion-space-id="9d8b16cc-09dd-81fe-87ac-000323ef94d8"><span class="icon" data-emoji="3️⃣"></span>A Context-Aware Extension of DyGKT</a></figure><p id="3cdb16cc-09dd-8017-a8b5-eefdf7293017" class="" dir="auto">Development and evaluation of the proposed extension to DyGKT, including its <strong>design</strong>, <strong>implementation</strong>, and<strong> experimental analysis</strong>.</p></div></aside><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="3cdb16cc-09dd-8061-9d25-d4c2accb43e4" dir="ltr"><div style="width:100%"><figure id="3c0b16cc-09dd-80c7-a2c0-ff3d6564c397" class="link-to-page"><a href="conclusions.html" data-notion-page-id="3c0b16cc-09dd-80c7-a2c0-ff3d6564c397" data-notion-space-id="9d8b16cc-09dd-81fe-87ac-000323ef94d8"><span class="icon" data-emoji="4️⃣"></span>Conclusions</a></figure><p id="3cdb16cc-09dd-80ee-a280-eeb6add29345" class="" dir="auto"><strong>Final conclusions</strong>, possible improvements and <strong>directions for future work</strong>.</p></div></aside><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="3cdb16cc-09dd-8076-a5de-e1ff5f9f3772" dir="ltr"><div style="width:100%"><figure id="3c7b16cc-09dd-80da-87af-e04f49efacdb" class="link-to-page"><a href="references.html" data-notion-page-id="3c7b16cc-09dd-80da-87af-e04f49efacdb" data-notion-space-id="9d8b16cc-09dd-81fe-87ac-000323ef94d8"><span class="icon" data-emoji="ℹ️"></span>References</a></figure><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="3d0b16cc-09dd-8050-9fca-c3ce41684777" dir="ltr"><div style="width:100%"><p id="3d0b16cc-09dd-802d-b947-e3239fe24d95" class="" dir="auto">A link to the references can be found in the top-right corner of the page and can be accessed at any time.</p></div></aside></div></aside></div></article>
+      
+    <nav class="chapter-pager" aria-label="Chapter navigation">
+      <span></span>
+      <a class="pager-link pager-next" href="the-problem-knowledge-tracing.html"><span>Next</span><strong>The Problem: Knowledge Tracing →</strong></a>
+    </nav>
+    </div>
+    <footer class="site-footer"><a href="#report-content">Back to top ↑</a></footer>
+  </main>
+</body>
+</html>

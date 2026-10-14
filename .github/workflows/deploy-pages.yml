@@ -1,0 +1,49 @@
+name: Deploy report to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Determine public URL
+        shell: bash
+        env:
+          CONFIGURED_SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          if [[ -n "$CONFIGURED_SITE_URL" ]]; then
+            site_url="${CONFIGURED_SITE_URL%/}"
+          else
+            repo_name="${GITHUB_REPOSITORY#*/}"
+            if [[ "$repo_name" == "${GITHUB_REPOSITORY_OWNER}.github.io" ]]; then
+              site_url="https://${GITHUB_REPOSITORY_OWNER}.github.io"
+            else
+              site_url="https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo_name}"
+            fi
+          fi
+          echo "SITE_URL=$site_url" >> "$GITHUB_ENV"
+      - name: Prepare social metadata
+        run: node scripts/prepare-pages.mjs
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
